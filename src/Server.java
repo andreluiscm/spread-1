@@ -37,7 +37,7 @@ public class Server {
 	// The server name of the Master.
 	private String master;
 	
-	// Structure to store the priority of all server in the group
+	// Structure to store the priority of all servers in the group.
 	private Map<String, Integer> tmServers;
 	
 	public Server(String address, int port, String server, int priority) {
