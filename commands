@@ -1,0 +1,5 @@
+Compile:
+javac -cp spread-4.4.0.jar Server.java
+
+Run:
+java -cp .:./spread-4.4.0.jar Server -a localhost -p 4803 -s SERVER_1 -r 1
