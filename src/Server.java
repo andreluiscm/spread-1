@@ -40,10 +40,10 @@ public class Server {
 	// Structure to store the priority of all server in the group
 	private Map<String, Integer> tmServers;
 	
-	public Server(String address, int port, String user, int priority) {
+	public Server(String address, int port, String server, int priority) {
 		
-		if (Integer.parseInt(user.split("_")[1]) >= 0 &&
-				Integer.parseInt(user.split("_")[1]) <= 1000) {
+		if (Integer.parseInt(server.split("_")[1]) >= 0 &&
+				Integer.parseInt(server.split("_")[1]) <= 1000) {
 			
 			// Setup the keyboard input.
 			this.inputKeyboard = new InputStreamReader(System.in);
@@ -52,7 +52,7 @@ public class Server {
 			try {
 				
 				this.connection = new SpreadConnection();
-				this.connection.connect(InetAddress.getByName(address), port, user, false, true);
+				this.connection.connect(InetAddress.getByName(address), port, server, false, true);
 				
 			} catch(SpreadException e) {
 				
@@ -73,7 +73,7 @@ public class Server {
 			}
 			
 			// Set the variables
-			this.serverName = user;
+			this.serverName = server;
 			this.priority = priority;
 			this.group = null;
 			this.master = null;
@@ -122,7 +122,7 @@ public class Server {
 			// Show the menu.
 			showMenu();
 			
-			// Get a user command.
+			// Get user command.
 			while(true)
 				getUserCommand();
 			
@@ -575,10 +575,10 @@ public class Server {
 					
 				}
 				
-				// Check for user.
+				// Check for server.
 				else if((args[i].compareTo("-s") == 0) && (args.length > (i + 1))) {
 					
-					// Set user.
+					// Set server.
 					i++;
 					server = args[i];
 					
@@ -609,7 +609,7 @@ public class Server {
 			
 		} else {
 			
-			System.out.print("Usage: java User\n" + 
+			System.out.print("Usage: java Server\n" + 
 					 "\t[-a <address>]     : the name or IP for the spread daemon\n" +
 					 "\t[-p <port>]        : the port for the spread daemon\n" +
 					 "\t[-s <server name>] : unique server name\n" +
