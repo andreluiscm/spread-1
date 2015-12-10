@@ -369,10 +369,6 @@ public class Server {
 	}
 	
 	private void getUserCommand() {
-
-		// Show the prompt.
-//		System.out.print("\n" + 
-//						 "Server> ");
 		
 		// Get the input.
 		char command[] = new char[1024];
